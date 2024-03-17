@@ -20,6 +20,7 @@ BigInt::~BigInt()
 	num_.clear();
 }
 
+// ŒJ‚èã‚°ŒJ‚è‰º‚°‚ğs‚¤ŠÖ”
 vector<int> BigInt::CarryFix(vector<int> digit) {
 
 	//Œ…”ŒJ‚è•Ô‚·
@@ -53,9 +54,11 @@ vector<int> BigInt::CarryFix(vector<int> digit) {
 	return digit;
 }
 
+// ˆø”‚Ì’l‚ÅŠ|‚¯Z‚·‚éŠÖ”
 vector<int> BigInt::Mul(vector<int> digit_a, vector<int> digit_b) {
 	int aSize = digit_a.size(); // A ‚ÌŒ…”
 	int bSize = digit_b.size(); // B ‚ÌŒ…”
+
 	vector<int> res(aSize + bSize - 1);
 	for (int i = 0; i < aSize; ++i) {
 		for (int j = 0; j < bSize; ++j) {
@@ -66,6 +69,7 @@ vector<int> BigInt::Mul(vector<int> digit_a, vector<int> digit_b) {
 	return CarryFix(res);
 }
 
+// æZ‚·‚éŠÖ”
 void BigInt::Pow(int num)
 {
 	vector<int> ans = num_;
@@ -79,6 +83,7 @@ void BigInt::Pow(int num)
 	num_.assign(ans.begin(), ans.end());
 }
 
+// Œ»İ‚Ì”‚ğ•\¦
 void BigInt::Draw()
 {
 
@@ -91,6 +96,3 @@ void BigInt::Draw()
 		}
 	}
 }
-
-int tmp = GetObjectID();
-std::string ID = std::to_string(tmp);
