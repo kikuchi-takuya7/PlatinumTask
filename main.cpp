@@ -22,7 +22,8 @@ namespace {
 /// <param name="num">四捨五入させたい値</param>
 /// <param name="n">表示させたい桁数(2なら小数第一位まで)</param>
 /// <returns>四捨五入後の値</returns>
-mp::cpp_dec_float_50 Rounding_n(mp::cpp_dec_float_50 num, int n);
+template <class T>
+T Rounding_n(T num, int n);
 
 int main() {
 
@@ -80,11 +81,12 @@ int main() {
 }
 
 // 任意の桁で四捨五入する関数
-mp::cpp_dec_float_50 Rounding_n(mp::cpp_dec_float_50 num, int n)
+template<class T>
+T Rounding_n(T num, int n)
 {
 	//四捨五入したい所までを整数にして、roundで四捨五入してから元に戻す
 	num = num * std::pow(10, n - 1);
-	num = mp::round(num); 
-	num /= std::pow(10, n - 1); 
+	num = mp::round(num);
+	num /= std::pow(10, n - 1);
 	return num;
 }
